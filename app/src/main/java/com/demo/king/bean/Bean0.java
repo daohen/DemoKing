@@ -11,9 +11,16 @@ import javax.inject.Inject;
  */
 public class Bean0 {
 
+    /**
+     * 只能有一个构造函数标记@Inject
+     */
     @Inject
     public Bean0(){
         Log.e("daohen", "Bean0");
+    }
+
+    public Bean0(String a){
+
     }
 
 }

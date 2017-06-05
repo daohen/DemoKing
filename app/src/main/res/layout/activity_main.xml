@@ -11,7 +11,17 @@
     tools:context="com.demo.king.MainActivity">
 
     <TextView
+        android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+    <Button
+        android:id="@+id/btn"
+        android:text="NEXT"
+        android:textSize="18sp"
+        android:padding="15dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

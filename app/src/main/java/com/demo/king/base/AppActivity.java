@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.demo.king.di.component.DaggerDemo1Component;
 import com.demo.king.di.component.Demo1Component;
+import com.demo.king.di.component.Demo3Component;
 
 /**
  * CREATE BY ALUN
@@ -18,6 +19,14 @@ public class AppActivity extends Activity {
          * 在这里可以不去初始化它，生成的代码检测到为null，会帮我们new出来
          */
         return DaggerDemo1Component.create();
+    }
+
+    public Demo3Component getDemo3Component(){
+        return getApp().createDemo3Component();
+    }
+
+    public App getApp(){
+        return (App) getApplication();
     }
 
 }
