@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.demo.king.base.AppActivity;
 import com.demo.king.bean.Bean0;
+import com.demo.king.bean.Bean1;
 import com.demo.king.bean.BeanA;
 import com.demo.king.bean.BeanB;
 
@@ -15,7 +16,7 @@ import javax.inject.Inject;
 public class MainActivity extends AppActivity {
 
     /**
-     * 构造器注入
+     * 构造器注入，有参数，参数也会被注入
      */
     @Inject
     Bean0 bean0;
@@ -54,10 +55,10 @@ public class MainActivity extends AppActivity {
     }
 
     /**
-     * 方法注入
+     * 方法注入，会先注入参数
      * 适用于需要安全的this对象，因为该方法执行在构造器之后
      */
-    @Inject void methodInject(){
+    @Inject void methodInject(Bean1 bean1){
         Log.e("daohen", "methodInject");
     }
 }

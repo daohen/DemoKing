@@ -10,7 +10,7 @@ import android.util.Log;
 public class BeanA {
 
     public BeanA(){
-        Log.e("daohen", "BeanA");
+        Log.e("daohen", BeanA.class.getSimpleName());
     }
 
 }

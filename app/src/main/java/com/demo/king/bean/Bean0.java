@@ -15,8 +15,8 @@ public class Bean0 {
      * 只能有一个构造函数标记@Inject
      */
     @Inject
-    public Bean0(){
-        Log.e("daohen", "Bean0");
+    public Bean0(Bean1 bean1){
+        Log.e("daohen", Bean0.class.getSimpleName());
     }
 
     public Bean0(String a){
