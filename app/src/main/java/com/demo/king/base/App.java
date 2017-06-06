@@ -41,8 +41,8 @@ public class App extends Application {
         demo3Component = null;
     }
 
-    public UserComponent createUserComponent(User user){
-        return userComponent = appComponent.plusUserComponent(new UserModule(user));
+    public UserComponent createUserComponent(User userA, User userB){
+        return userComponent = appComponent.plusUserComponent(new UserModule(userA, userB));
     }
 
     public UserComponent getUserComponent(){

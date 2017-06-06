@@ -3,6 +3,8 @@ package com.demo.king.di.module;
 import com.demo.king.bean.User;
 import com.demo.king.di.UserScope;
 
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -14,13 +16,24 @@ import dagger.Provides;
 @Module
 public class UserModule {
 
-    private User user;
+    private User userA;
+    private User userB;
 
-    public UserModule(User user){
-        this.user = user;
+    public UserModule(User userA, User userB){
+        this.userA = userA;
+        this.userB = userB;
     }
 
-    @Provides @UserScope User provideUser(){
-        return user;
+    /**
+     * 用@Named来区分两个实例
+     * @return
+     */
+
+    @Provides @UserScope @Named("userA") User provideUserA(){
+        return userA;
+    }
+
+    @Provides @UserScope @Named("userB") User provideUserB(){
+        return userB;
     }
 }

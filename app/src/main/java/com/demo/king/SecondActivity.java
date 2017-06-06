@@ -38,7 +38,7 @@ public class SecondActivity extends AppActivity {
             @Override
             public void onClick(View v) {
                 User user = new User("alun", 18);
-                getApp().createUserComponent(user);
+                getApp().createUserComponent(user, new User("alun2", 40));
 
                 Log.e("daohen", SecondActivity.class.getSimpleName() + " new User = "+user);
 

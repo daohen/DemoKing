@@ -7,6 +7,7 @@ import com.demo.king.base.AppActivity;
 import com.demo.king.bean.User;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * CREATE BY ALUN
@@ -15,10 +16,7 @@ import javax.inject.Inject;
  */
 public class User2Activity extends AppActivity {
 
-    /**
-     * 这里的user就是SecondActivity里面new出来的
-     */
-    @Inject
+    @Inject @Named("userA")
     User user;
 
     @Override

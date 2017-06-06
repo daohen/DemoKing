@@ -10,6 +10,7 @@ import com.demo.king.base.AppActivity;
 import com.demo.king.bean.User;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * CREATE BY ALUN
@@ -19,9 +20,11 @@ import javax.inject.Inject;
 public class User1Activity extends AppActivity {
 
     /**
-     * 这里的user就是SecondActivity里面new出来的
+     * 这里的user就是SecondActivity里面new出来的，同一个实例
+     * 由于UserModule里面提供了两个User的实现方式，
+     * 为了更准确找出我们需要的实现方式，需要标记@Named加以区别
      */
-    @Inject
+    @Inject @Named("userA")
     User user;
 
     @Override
