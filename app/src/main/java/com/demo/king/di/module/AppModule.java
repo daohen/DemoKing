@@ -5,6 +5,7 @@ import android.content.Context;
 import com.demo.king.bean.BeanD;
 import com.demo.king.bean.DataRepository;
 import com.demo.king.bean.Repository;
+import com.google.gson.Gson;
 
 import javax.inject.Singleton;
 
@@ -38,5 +39,10 @@ public class AppModule {
     @Provides @Singleton
     Repository provideRepository(DataRepository dataRepository){
         return new Repository(dataRepository);
+    }
+
+    @Provides @Singleton
+    Gson providerGson(){
+        return new Gson();
     }
 }

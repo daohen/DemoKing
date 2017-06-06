@@ -31,6 +31,10 @@ public class App extends Application {
                 .appModule(new AppModule(this)).build();
     }
 
+    public AppComponent getAppComponent(){
+        return appComponent;
+    }
+
     public Demo3Component createDemo3Component(){
         return demo3Component = appComponent.plusDemo3Component();
     }

@@ -5,6 +5,7 @@ import android.content.Context;
 import com.demo.king.bean.Repository;
 import com.demo.king.di.module.AppModule;
 import com.demo.king.di.module.UserModule;
+import com.google.gson.Gson;
 
 import javax.inject.Singleton;
 
@@ -18,6 +19,12 @@ import dagger.Component;
 @Singleton
 @Component(modules = AppModule.class)
 public interface AppComponent {
+
+
+    /**
+     * 如果在声明其它Component时，用@Component(dependencies = AppComponent.class, module...)声明
+     * 表示它依赖于AppComponent，AppComponent暴露出的方法，子Component都可以访问
+     */
 
     /**
      * 这里的方法声明一般有下面几种方式
@@ -41,5 +48,7 @@ public interface AppComponent {
      * @return
      */
     Repository repository();
+
+    Gson gson();
 
 }

@@ -2,6 +2,8 @@ package com.demo.king.base;
 
 import android.app.Activity;
 
+import com.demo.king.di.component.ActivityComponent;
+import com.demo.king.di.component.DaggerActivityComponent;
 import com.demo.king.di.component.DaggerDemo1Component;
 import com.demo.king.di.component.Demo1Component;
 import com.demo.king.di.component.Demo3Component;
@@ -27,6 +29,12 @@ public class AppActivity extends Activity {
             demo3Component = getApp().createDemo3Component();
         return demo3Component;
     }
+
+    public ActivityComponent getActivityComponent(){
+        return DaggerActivityComponent.builder()
+                .appComponent(getApp().getAppComponent()).build();
+    }
+
 
     public App getApp(){
         return (App) getApplication();
