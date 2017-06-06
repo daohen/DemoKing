@@ -22,11 +22,6 @@ public interface AppComponent {
 
 
     /**
-     * 如果在声明其它Component时，用@Component(dependencies = AppComponent.class, module...)声明
-     * 表示它依赖于AppComponent，AppComponent暴露出的方法，子Component都可以访问
-     */
-
-    /**
      * 这里的方法声明一般有下面几种方式
      * 1. 很长见的像 void inject(MainActivity a)
      * 2. 返回一个对象，像下面这个方法
@@ -34,6 +29,16 @@ public interface AppComponent {
     Demo3Component plusDemo3Component();
 
     UserComponent plusUserComponent(UserModule userModule);
+
+
+
+    /**
+     * 如果在声明其它Component时，用@Component(dependencies = AppComponent.class, module...)声明
+     * 表示它依赖于AppComponent，AppComponent暴露出的方法，子Component都可以访问，像下面的几个可实例的类
+     *
+     * 如果其它Component想访问AppComonent所有可产生的实例，
+     * 那么就要用到@Subcomponent，像上面的两个component
+     */
 
     /**
      * 返回系统类的实例，无法用@Inject标记的构造器生成，只能通过module查找，

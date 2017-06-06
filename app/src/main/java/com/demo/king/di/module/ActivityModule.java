@@ -1,6 +1,7 @@
 package com.demo.king.di.module;
 
 import com.demo.king.bean.BeanE;
+import com.demo.king.di.PerActivity;
 
 import dagger.Module;
 import dagger.Provides;
@@ -13,7 +14,7 @@ import dagger.Provides;
 @Module
 public class ActivityModule {
 
-    @Provides
+    @Provides @PerActivity
     BeanE provideBeanE(){
         return new BeanE();
     }
