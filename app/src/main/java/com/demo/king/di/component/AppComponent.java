@@ -1,6 +1,7 @@
 package com.demo.king.di.component;
 
 import com.demo.king.di.module.AppModule;
+import com.demo.king.di.module.UserModule;
 
 import javax.inject.Singleton;
 
@@ -21,5 +22,7 @@ public interface AppComponent {
      * 2. 返回一个对象，像下面这个方法
      */
     Demo3Component plusDemo3Component();
+
+    UserComponent plusUserComponent(UserModule userModule);
 
 }

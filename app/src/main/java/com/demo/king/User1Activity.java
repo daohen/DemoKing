@@ -5,9 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.demo.king.base.App;
 import com.demo.king.base.AppActivity;
-import com.demo.king.bean.BeanC;
-import com.demo.king.bean.BeanD;
 import com.demo.king.bean.User;
 
 import javax.inject.Inject;
@@ -15,34 +14,32 @@ import javax.inject.Inject;
 /**
  * CREATE BY ALUN
  * EMAIL: alunfeixue2011@gmail.com
- * DATA : 2017/06/06 00:47
+ * DATA : 2017/06/06 09:05
  */
-public class SecondActivity extends AppActivity {
+public class User1Activity extends AppActivity {
 
-    @Inject
-    BeanC beanC;
     /**
-     * 此处component是@Subcomponent，可以访问到父Component产生的对象，所以可以注入BeanD
+     * 这里的user就是SecondActivity里面new出来的
      */
     @Inject
-    BeanD beanD;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getDemo3Component().inject(this);
+        getApp().getUserComponent().inject(this);
+
+        Log.e("daohen", User1Activity.class.getSimpleName() + " user="+user);
+        Log.e("daohen", User1Activity.class.getSimpleName() + " name=" + user.getName() + " age="+user.getAge());
+        user.setAge(20);
+        Log.e("daohen", User1Activity.class.getSimpleName() + " modify age=" + user.getAge());
 
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User user = new User("alun", 18);
-                getApp().createUserComponent(user);
-
-                Log.e("daohen", SecondActivity.class.getSimpleName() + " new User = "+user);
-
-                startActivity(new Intent(SecondActivity.this, User1Activity.class));
+                startActivity(new Intent(User1Activity.this, User2Activity.class));
             }
         });
     }

@@ -22,7 +22,10 @@ public class AppActivity extends Activity {
     }
 
     public Demo3Component getDemo3Component(){
-        return getApp().createDemo3Component();
+        Demo3Component demo3Component = getApp().getDemo3Component();
+        if (demo3Component == null)
+            demo3Component = getApp().createDemo3Component();
+        return demo3Component;
     }
 
     public App getApp(){
