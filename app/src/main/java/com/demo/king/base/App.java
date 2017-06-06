@@ -7,6 +7,7 @@ import com.demo.king.di.component.AppComponent;
 import com.demo.king.di.component.DaggerAppComponent;
 import com.demo.king.di.component.Demo3Component;
 import com.demo.king.di.component.UserComponent;
+import com.demo.king.di.module.AppModule;
 import com.demo.king.di.module.UserModule;
 
 /**
@@ -26,7 +27,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        appComponent = DaggerAppComponent.create();
+        appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this)).build();
     }
 
     public Demo3Component createDemo3Component(){

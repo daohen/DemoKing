@@ -1,5 +1,8 @@
 package com.demo.king.di.component;
 
+import android.content.Context;
+
+import com.demo.king.bean.Repository;
 import com.demo.king.di.module.AppModule;
 import com.demo.king.di.module.UserModule;
 
@@ -24,5 +27,19 @@ public interface AppComponent {
     Demo3Component plusDemo3Component();
 
     UserComponent plusUserComponent(UserModule userModule);
+
+    /**
+     * 返回系统类的实例，无法用@Inject标记的构造器生成，只能通过module查找，
+     * AppModule里面有provide Context的方法
+     * @return
+     */
+    Context context();
+
+    /**
+     * 自定义的类，构造函数如果没有参数，可以直接用@Inject标记构造器生成，而不用去写在module里面通过provide生成
+     * 如果构造函数有参数，根据它的原则先从module里面找，再从@Inject构造器标记去找
+     * @return
+     */
+    Repository repository();
 
 }
