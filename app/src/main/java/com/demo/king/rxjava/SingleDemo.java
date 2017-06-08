@@ -32,6 +32,10 @@ public class SingleDemo {
     }
 
 
+    public static void m12Test(){
+
+    }
+
     public static void m11Test(){
         Single.create(new Single.OnSubscribe<String>() {
             @Override
