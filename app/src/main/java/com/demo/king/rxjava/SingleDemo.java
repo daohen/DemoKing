@@ -6,6 +6,7 @@ import android.util.Log;
 import com.demo.king.rxjava.internal.Net;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 import rx.Notification;
 import rx.Observer;
@@ -28,12 +29,29 @@ import rx.functions.Func2;
 public class SingleDemo {
 
     public static void run(){
-        m11Test();
+        m12Test();
     }
 
 
     public static void m12Test(){
+        Single.create(new Single.OnSubscribe<String>() {
+            @Override
+            public void call(SingleSubscriber<? super String> singleSubscriber) {
+                Utils.log("call");
+                singleSubscriber.onSuccess("succ");
+            }
+        }).delay(5, TimeUnit.SECONDS)
+                .subscribe(new SingleSubscriber<String>() {
+                    @Override
+                    public void onSuccess(String s) {
+                        Utils.onSuccess(s);
+                    }
 
+                    @Override
+                    public void onError(Throwable error) {
+
+                    }
+                });
     }
 
     public static void m11Test(){
