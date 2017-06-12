@@ -3,6 +3,7 @@ package com.demo.king;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.demo.king.rxjava.ObservableDemo;
 import com.demo.king.rxjava.SingleDemo;
 
 public class MainActivity extends Activity {
@@ -12,6 +13,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SingleDemo.run();
+//        SingleDemo.run();
+        ObservableDemo.run();
     }
 }

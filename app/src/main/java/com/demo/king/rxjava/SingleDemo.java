@@ -9,6 +9,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 import rx.Notification;
+import rx.Observable;
 import rx.Observer;
 import rx.Single;
 import rx.SingleEmitter;
@@ -345,7 +346,7 @@ public class SingleDemo {
     }
 
     /**
-     * single.compose() & single.lift()
+     * single.lift()
      */
     public static void m1Test(){
         Single<String> single = Single.create(new Single.OnSubscribe<String>() {
@@ -357,21 +358,10 @@ public class SingleDemo {
             }
         });
 
-        single = single.compose(new Single.Transformer<String, String>() {
-            @Override
-            public Single<String> call(Single<String> stringSingle) {
-                return stringSingle.map(new Func1<String, String>() {
-                    @Override
-                    public String call(String s) {
-                        return "compose map "+s;
-                    }
-                });
-            }
-        });
 
 
 
-        /*single = single.lift(new Observable.Operator<String, String>() {
+        single = single.lift(new Observable.Operator<String, String>() {
             @Override
             public Subscriber<? super String> call(final Subscriber<? super String> subscriber) {
                 return new Subscriber<String>() {
@@ -394,7 +384,7 @@ public class SingleDemo {
                     }
                 };
             }
-        });*/
+        });
 
         SingleSubscriber<String> singleSubscriber = new SingleSubscriber<String>() {
             @Override

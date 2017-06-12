@@ -14,7 +14,7 @@ public class Utils {
     }
 
     public static void onCompleted(String... msg){
-        Log.e("daohen", msg == null ? "onCompleted" : "onCompleted " + msg[0]);
+        Log.e("daohen", msg == null || msg.length == 0 ? "onCompleted" : "onCompleted " + msg[0]);
     }
 
     public static void onError(String... msg){
