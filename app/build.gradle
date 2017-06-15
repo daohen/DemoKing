@@ -57,8 +57,7 @@ android {
             if ("true".equals(IS_JENKINS)) {
                 timeNow = JENKINS_TIME
                 outDirectory = '/Library/tomcat8/webapps/jenkins/outputs/apk'
-                newName += 'demo-android-v' +
-                        APP_VERSION + '-' + variant.productFlavors[0].name + timeNow + '-' + variant.buildType.name + '.apk'
+                newName += '-' + variant.productFlavors[0].name + timeNow + '-' + variant.buildType.name + '.apk'
             } else {
                 timeNow = getDate()
                 if (variant.buildType.name.equals('debug')) {
