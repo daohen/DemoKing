@@ -50,7 +50,10 @@ android {
             buildConfigField "boolean", "LEO_DEBUG", RELEASE_LEO_DEBUG
         }
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
     productFlavors {
         commonsoon {
             manifestPlaceholders = [UMENG_CHANNEL_VALUE: "commonsoon"]
