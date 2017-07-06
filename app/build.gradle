@@ -1,74 +1,22 @@
 apply plugin: 'com.android.application'
 
-def getDate() {
-    def date = new Date()
-    def formattedDate = date.format('yyyyMMddHHmm')
-    return formattedDate
-}
-
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
-    signingConfigs {
-        signingConfig {
-            storeFile file("sika.key")
-            storePassword "123456qw"
-            keyAlias "sika"
-            keyPassword "123456789"
-        }
-    }
     defaultConfig {
         applicationId "com.demo.king"
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
-        versionName APP_VERSION
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        resValue("string", 'app_version', APP_VERSION)
-        signingConfig signingConfigs.signingConfig
     }
     buildTypes {
         release {
-            minifyEnabled true
-            zipAlignEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-        }
-    }
-
-    productFlavors {
-        commonsoon {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "commonsoon"]
-        }
-        zhushou91 {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "zhushou91"]
-        }
-    }
-
-    applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            def newName = 'demo-android-v' + APP_VERSION
-            def timeNow
-            def oldFile = output.outputFile
-            def outDirectory = oldFile.parent
-
-            if ("true".equals(IS_JENKINS)) {
-                timeNow = JENKINS_TIME
-                outDirectory = '/Library/tomcat8/webapps/jenkins/outputs/apk'
-                newName += '-' + variant.productFlavors[0].name + timeNow + '-' + variant.buildType.name + '.apk'
-            } else {
-                timeNow = getDate()
-                if (variant.buildType.name.equals('debug')) {
-                    newName += "-debug.apk"
-                } else {
-                    newName += '-' + variant.productFlavors[0].name + timeNow + '-' + variant.buildType.name + '.apk'
-                }
-            }
-
-            output.outputFile = new File(outDirectory, newName)
-
         }
     }
 }
