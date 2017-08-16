@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        SingleDemo.run();
-        ObservableDemo.run();
+        SingleDemo.run();
+//        ObservableDemo.run();
     }
 }

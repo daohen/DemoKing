@@ -2,7 +2,8 @@ package com.demo.king.rxjava.internal;
 
 import com.demo.king.rxjava.SingleDemo;
 
-import rx.functions.Cancellable;
+import io.reactivex.functions.Cancellable;
+
 
 /**
  * CREATE BY ALUN
